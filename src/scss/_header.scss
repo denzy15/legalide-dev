@@ -1,0 +1,244 @@
+.menu {
+  height: 50px;
+  display: flex;
+  column-gap: 20px;
+  align-items: center;
+}
+
+.menu-item {
+  a {
+    color: #fff;
+  }
+}
+
+.burger {
+  cursor: pointer;
+  margin: 0;
+  width: 23px;
+  height: 14px;
+  position: relative;
+  z-index: 10;
+  display: none;
+}
+
+.burger::before,
+.burger::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  background-color: #737373;
+}
+
+.burger::before {
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.burger::after {
+  bottom: 0;
+  right: 0;
+  width: 50%;
+}
+
+.burger span {
+  position: absolute;
+  top: 5.5px;
+  width: 75%;
+  height: 2px;
+  right: 0;
+  background-color: #737373;
+}
+
+.desktop-burger {
+  position: absolute;
+  display: block;
+  right: 3%;
+  top: 45px;
+}
+
+.header {
+  background: url("../img/header-bg.png") 0 0 / cover no-repeat;
+
+  &__navbar {
+    height: 104px;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    color: #737373;
+    column-gap: prc(140, 1186);
+    a {
+      color: #737373;
+      font-weight: 600;
+      line-height: 171%;
+      letter-spacing: 0.2px;
+    }
+  }
+
+  &__logo {
+    flex: 1 1 auto;
+    a {
+      font-size: 35px;
+      color: #252b42;
+      font-family: "Martel";
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 133%;
+      letter-spacing: 0.1px;
+    }
+  }
+
+  &__row {
+    display: flex;
+    gap: 30px;
+    @media screen and (max-width: 768px) {
+      display: block;
+      text-align: center;
+    }
+  }
+
+  &__body {
+    flex: 0 1 50%;
+    padding: 12% 0px 0px 0px;
+    @media screen and (max-width: 768px) {
+      margin-bottom: rem(100);
+    }
+  }
+
+  &__title {
+    font-family: "Martel";
+    font-weight: 900;
+    font-size: 58px;
+    line-height: 112%;
+    letter-spacing: 0.2px;
+    color: #252b42;
+  }
+
+  &__text {
+    font-family: "Montserrat";
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 150%;
+    letter-spacing: 0.2px;
+    color: #737373;
+    margin: 35px 0;
+    padding-right: 20%;
+    @media screen and (max-width: 768px) {
+      padding: 0;
+    }
+  }
+
+  &__btns {
+    display: flex;
+    gap: 10px;
+    @media screen and (max-width: 768px) {
+      display: block;
+    }
+    a {
+      color: #fff;
+      display: block;
+      max-width: 182px;
+      margin: 0 auto;
+      &:last-child {
+        margin-top: 10px;
+        color: #784f33;
+        background: inherit;
+        border: 1px solid #784f33;
+      }
+    }
+  }
+
+  &__btn {
+    padding: 10px 36px;
+    text-align: center;
+    border-radius: 37px;
+    background: #784f33;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 200%;
+    text-align: center;
+    letter-spacing: 0.2px;
+  }
+
+  &__img {
+    flex: 0 1 50%;
+    max-width: 50%;
+  }
+}
+
+.menu-icons {
+  display: flex;
+  gap: rem(22);
+  margin: 0px 0px 0px 18px;
+
+  a {
+    font-weight: 500;
+    font-size: 16px;
+  }
+}
+
+.menu-icons.mobile {
+  display: none;
+}
+
+@media screen and (max-width: 1180px) {
+  .menu-icons{
+    display: none;
+  }
+  .menu-icons.mobile {
+      display: flex;
+    }
+  .burger {
+    display: block;
+  }
+
+  .desktop-burger {
+    display: none;
+  }
+
+  .burger.active span {
+    display: none;
+  }
+
+  .burger.active::after {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    bottom: 3px;
+    width: 100%;
+  }
+
+  .burger.active::before {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    top: 9px;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .menu.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: fixed;
+    row-gap: 20px;
+    z-index: 5;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 90%;
+    background-color: #fff;
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+  }
+
+  body.locked {
+    overflow: hidden;
+  }
+}
+

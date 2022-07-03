@@ -1,0 +1,542 @@
+@use "sass:math";
+
+// Imports========================================================================================================================
+
+@import "null";
+@import "global";
+@import "header";
+@import "footer";
+@import "iconsfont";
+
+// Fonts connection ===================================================================================================================
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:regular,600,700&display=swap);
+
+@import url(https://fonts.googleapis.com/css?family=Martel:700,900&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:regular,500,700&display=swap);
+
+// Styles ===================================================================================================================
+
+// common ===================================================================================================================
+
+.title {
+  font-family: "Martel";
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 125%;
+  letter-spacing: 0.2px;
+}
+
+.text {
+  letter-spacing: 0.2px;
+  color: #737373;
+  line-height: 143%;
+}
+
+// Areas ===================================================================================================================
+
+.areas {
+  padding: 100px 0;
+  @media screen and (max-width: 500px) {
+    padding: 45px 0;
+  }
+  &__container {
+    text-align: center;
+  }
+
+  &__title {
+  }
+
+  &__text {
+    margin: 10px 0px 80px 0px;
+  }
+
+  &__row {
+    display: flex;
+    gap: 30px;
+    @media screen and (max-width: 500px) {
+      flex-direction: column;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 40px;
+    gap: 10px;
+    background: #f9f9f9;
+    box-shadow: 0px 13px 19px rgba(0, 0, 0, 0.07);
+    border-radius: 5px;
+    flex: 0 1 prc(325, $maxContWidth - 30);
+    span {
+      color: #295c7a;
+      font-size: 53px;
+    }
+    &_blue {
+      background: #295c7a;
+      color: #fff;
+      span {
+        color: #fff;
+      }
+    }
+  }
+
+  &__card-name {
+    font-family: "Martel";
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    text-align: center;
+    letter-spacing: 0.1px;
+    margin: 10px 0px 0px 0px;
+  }
+}
+
+// Advice ===================================================================================================================
+
+.advice {
+  margin: 80px 0;
+  @media screen and (max-width: 768px) {
+    margin: 20px 0;
+  }
+
+  &__title {
+    text-align: center;
+    & + p {
+      text-align: center;
+      margin: 10px 0px 45px 0px;
+    }
+  }
+
+  &__row {
+    display: flex;
+    gap: prc(30, $maxContWidth - 30);
+    justify-content: space-between;
+    @media screen and (max-width: 768px) {
+      display: block;
+      max-width: 325px;
+      margin: 0 auto;
+    }
+  }
+
+  &__item {
+    flex: 0 1 prc(238, $maxContWidth - 30);
+    display: flex;
+    flex-direction: column;
+    @media screen and (max-width: 768px) {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__item-name {
+    font-family: "Martel";
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.1px;
+    margin-bottom: 15px;
+  }
+
+  &__body {
+    padding: 30px;
+    text-align-last: left;
+    flex: 1 1 auto;
+  }
+  &__img {
+    img {
+      width: 100%;
+    }
+  }
+}
+
+// about ===================================================================================================================
+.about {
+  padding: 100px 0px 143px 0px;
+  @media screen and (max-width: 768px) {
+    padding: 40px 0;
+  }
+  &__container {
+  }
+
+  &__title {
+    text-align: center;
+    margin: 0px 0px 15px 0px;
+  }
+
+  &__subtitle {
+    text-align: center;
+  }
+
+  &__row {
+    margin: 100px 0px 0px 0px;
+    display: flex;
+    column-gap: prc(120, $maxContWidth - 30);
+    align-items: start;
+    @media screen and (max-width: 768px) {
+      display: block;
+    }
+  }
+
+  &__video {
+    position: relative;
+    flex: 0 1 56.7%;
+    video {
+      width: 100%;
+    }
+    a {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    flex: 0 1 prc(321, 1050);
+    @media screen and (max-width: 768px) {
+      margin: 50px 0px 0px 0px;
+    }
+  }
+
+  &__body {
+  }
+
+  &__item {
+    padding-left: 52px;
+    position: relative;
+    &::before {
+      position: absolute;
+      left: 0;
+      top: 5%;
+      font-size: 30px;
+      color: #d0a144;
+    }
+  }
+
+  &__item-title {
+    font-family: "Martel";
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.1px;
+  }
+
+  &__item-subtitle {
+    font-weight: 700;
+    line-height: 171%;
+    font-family: "Open Sans";
+    letter-spacing: 0.2px;
+    color: #737373;
+  }
+}
+
+.item-about {
+  &__title {
+    margin-bottom: 10px;
+  }
+}
+
+// subscribe  ===================================================================================================================
+
+.subscribe {
+  border-bottom: 77px solid #252b42;
+  @media screen and (max-width: 768px) {
+    border: none;
+  }
+  &__container {
+    position: relative;
+  }
+
+  &__medias {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 0 137px;
+    @media screen and (max-width: 768px) {
+      flex-wrap: wrap;
+      row-gap: 10px;
+      padding: 30px 0;
+      li {
+        flex: 0 1 33.333%;
+        text-align: center;
+      }
+    }
+    @media screen and (max-width: 500px) {
+      flex-direction: column;
+      gap: 60px;
+    }
+  }
+
+  &__form {
+    position: absolute;
+    left: 50%;
+    bottom: -40%;
+    transform: translate(-50%, -40%);
+    width: 96%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: rem(30) rem(50);
+    background: linear-gradient(270deg, #295c7a -1.04%, #0072b5 100%);
+    border-radius: 2px;
+    align-items: center;
+    column-gap: 17%;
+    @media screen and (max-width: 950px) {
+      display: block;
+    }
+    @media screen and (max-width: 768px) {
+      position: static;
+      transform: none;
+      width: 100%;
+    }
+    @media screen and (max-width: 500px) {
+      text-align: center;
+      padding: 20px;
+    }
+    label {
+      flex: 0 1 prc(450, 986);
+      border: 1px solid #e6e6e6;
+      border-radius: 5px;
+      overflow: hidden;
+      display: flex;
+      @media screen and (max-width: 950px) {
+        margin: 10px 0px 0px 0px;
+        
+      }
+      @media screen and (max-width: 500px) {
+        max-width: 337px;
+        margin: 0 auto;
+        margin-top: 10px;
+      }
+      input {
+        flex: 0 1 prc(333, 450);
+        padding: 15px 20px;
+        @media screen and (max-width: 500px) {
+         
+        }
+      }
+      button {
+        flex: 0 1 prc(117, 450);
+        padding: 15px 22.5px;
+        font-family: "Montserrat";
+        line-height: 200%;
+        letter-spacing: 0.2px;
+        color: #ffffff;
+        background-color: #d0a144;
+        @media screen and (max-width: 500px) {
+          flex: 1 1 auto;
+        }
+      }
+    }
+  }
+
+  &__text {
+    font-family: "Martel";
+    font-weight: 700;
+    font-size: rem(24);
+    line-height: 133%;
+    letter-spacing: 0.1px;
+    color: #ffffff;
+  }
+}
+
+// contact  ===================================================================================================================
+
+.contact {
+  padding: 80px 0 156px 0;
+  background-color: #f3f3f3;
+  @media screen and (max-width: 768px) {
+    padding: 50px 0;
+  }
+  &__container {
+  }
+  &__title {
+    text-align: center;
+  }
+
+  &__subtitle {
+    text-align: center;
+  }
+
+  &__row {
+    display: flex;
+    padding: 0 32.5px;
+    margin: 80px 0px 0px 0px;
+    align-items: center;
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+      gap: 30px;
+    }
+    @media screen and (max-width: 950px) {
+      padding: 0;
+    }
+  }
+
+  &__card {
+    padding: rem(50) rem(40);
+    background-color: #fff;
+    flex: 0 1 33.333%;
+    text-align: center;
+    @media screen and (max-width: 950px) {
+      padding: 10px 20px;
+    }
+    @media screen and (max-width: 768px) {
+      padding: rem(50) rem(40);
+    }
+    &_m {
+      background: #252b42;
+      color: #fff;
+      padding: rem(90) rem(40);
+      @media screen and (max-width: 950px) {
+        padding: 30px 20px;
+      }
+      @media screen and (max-width: 768px) {
+        padding: rem(90) rem(40);
+      }
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+
+  &__icon {
+    font-size: 72px;
+    color: #d0a144;
+  }
+
+  &__emails {
+    font-weight: 700;
+    line-height: 171%;
+    letter-spacing: 0.2px;
+  }
+
+  &__get {
+    font-family: "Martel";
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.1px;
+  }
+
+  &__btn {
+    border: 1px solid #d0a144;
+    border-radius: 5px;
+    color: #d0a144;
+    padding: 10px 20px;
+    font-weight: 700;
+    line-height: 171%;
+    text-align: center;
+    letter-spacing: 0.2px;
+  }
+}
+
+// consult ===================================================================================================================
+
+.consult {
+  padding: 40px 0;
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @media screen and (max-width: 768px) {
+      display: block;
+      text-align: center;
+    }
+  }
+
+  &__info {
+  }
+
+  &__title {
+    font-family: "Martel";
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 133%;
+    letter-spacing: 0.1px;
+  }
+
+  &__subtitle {
+    letter-spacing: 0.2px;
+    line-height: 143%;
+    color: #737373;
+    margin-top: 10px;
+  }
+
+  &__btn {
+    background: #784f33;
+    border-radius: 5px;
+    padding: 15px 40px;
+    margin-right: prc(150, 1050);
+    a {
+      font-weight: 700;
+      line-height: 200%;
+      text-align: center;
+      letter-spacing: 0.2px;
+      color: #ffffff;
+    }
+    @media screen and (max-width: 768px) {
+      max-width: 236px;
+      margin: 0 auto;
+      margin-top: 50px;
+    }
+  }
+}
+
+// info ===================================================================================================================
+
+.info {
+  background: linear-gradient(270deg, #295c7a -1.04%, #0072b5 100%);
+  color: #fff;
+  padding: 50px 0;
+  &__container {
+    display: flex;
+    column-gap: 30px;
+    justify-content: space-between;
+    @media screen and (max-width: 768px) {
+      flex-wrap: wrap;
+      row-gap: 40px;
+      justify-content: center;
+      text-align: center;
+    }
+  }
+
+  &__column {
+    @media screen and (max-width: 768px) {
+      flex: 0 1 45%;
+    }
+  }
+
+  &__title {
+    font-family: "Martel";
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    margin-bottom: 20px;
+    letter-spacing: 0.1px;
+  }
+
+  &__list {
+    li:not(:last-child) {
+      margin-bottom: 10px;
+    }
+    a {
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      line-height: 171%;
+      &::before {
+        margin-right: 10px;
+        font-size: 22px;
+        color: #8ec2f2;
+      }
+    }
+  }
+}

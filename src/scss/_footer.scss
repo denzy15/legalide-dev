@@ -1,0 +1,45 @@
+.footer {
+  padding: 25px 0;
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    @media screen and (max-width: 500px) {
+      flex-direction: column;
+      align-items: center;
+    }
+   
+  }
+
+  &__copyright {
+    font-weight: 700;
+    line-height: 171%;
+    letter-spacing: 0.2px;
+    color: #737373;
+  }
+
+  &__medias {
+    display: flex;
+    column-gap: 20px;
+  }
+
+  &__media {
+    font-size: 24px;
+  }
+}
+
+.icon-fb {
+  color: #335bf5;
+}
+
+.icon-inst {
+  color: #e51f5a;
+}
+
+.icon-twitter {
+  color: #21a6df;
+}
+
+.icon-yt {
+  color: #e42f08;
+}
