@@ -114,6 +114,11 @@
     line-height: 112%;
     letter-spacing: 0.2px;
     color: #252b42;
+    @media screen and (max-width: 500px) {
+      font-size: 40px;
+      font-weight: 700;
+      text-align: center;
+    }
   }
 
   &__text {
@@ -184,12 +189,12 @@
 }
 
 @media screen and (max-width: 1180px) {
-  .menu-icons{
+  .menu-icons {
     display: none;
   }
   .menu-icons.mobile {
-      display: flex;
-    }
+    display: flex;
+  }
   .burger {
     display: block;
   }
@@ -241,4 +246,3 @@
     overflow: hidden;
   }
 }
-
